@@ -1,15 +1,21 @@
 # E314.Protect
 
-The `E314.Protect` module provides methods for validating input data and conditions. It prevents errors caused by invalid data by throwing exceptions with informative messages.
+## Description
+
+The `E314.Protect` module provides methods for validating input data and conditions.
+It prevents errors caused by invalid data by throwing exceptions with informative messages.
 
 ## Content tree
 
-- [Requires](#requires)
-  - [Method Parameter Validation](#method-parameter-validation)
-  - [Object State Validation](#object-state-validation)
-  - [Collection Validation](#collection-validation)
-  - [Combined Validations](#combined-validations)
-  - [Exception Handling](#exception-handling)
+- [E314.Protect](#e314protect)
+  - [Description](#description)
+  - [Content tree](#content-tree)
+  - [Requires](#requires)
+    - [Method Parameter Validation](#method-parameter-validation)
+    - [Object State Validation](#object-state-validation)
+    - [Collection Validation](#collection-validation)
+    - [Combined Validations](#combined-validations)
+    - [Exception Handling](#exception-handling)
 
 ## Requires
 
