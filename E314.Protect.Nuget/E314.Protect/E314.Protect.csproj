@@ -1,0 +1,23 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net6.0</TargetFramework>
+        <Nullable>disable</Nullable>
+        <LangVersion>9</LangVersion>
+        <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+        <Title>E314.Protect</Title>
+        <Authors>Maksim Epishev (epishev.m@mail.ru)</Authors>
+        <Copyright>Copyright (c) 2025 Maksim Epishev (epishev.m@mail.ru)</Copyright>
+        <RepositoryType>Git</RepositoryType>
+        <Version>1.0.0</Version>
+        <PackageId>E314.Protect</PackageId>
+        <RepositoryUrl>https://github.com/epishev-m/e314-protect</RepositoryUrl>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <Compile Include="..\..\E314.Protect.Upm\Packages\com.e314.protect\Runtime\Requires.cs">
+        <Link>Runtime\Requires.cs</Link>
+      </Compile>
+    </ItemGroup>
+
+</Project>
