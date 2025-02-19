@@ -107,6 +107,22 @@ public static class Requires
 			throw new ArgumentException("Collection cannot contain null elements.", paramName);
 		}
 	}
+
+	/// <summary>
+	/// Throws an <see cref="InvalidOperationException"/>, indicating an invalid operation.
+	/// </summary>
+	/// <param name="message">The error message that explains the reason for the exception.</param>
+	/// <exception cref="InvalidOperationException">Always thrown when this method is called.</exception>
+	/// <remarks>
+	/// This method is used in situations where the execution reaches a point that is considered invalid.
+	/// For example, if the program logic should not allow reaching a specific state, this method can be used
+	/// to explicitly indicate an error.
+	/// </remarks>
+	[MethodImpl(MethodImplOptions.AggressiveInlining)]
+	public static void InvalidOperation(string message)
+	{
+		throw new InvalidOperationException(message);
+	}
 }
 
 }

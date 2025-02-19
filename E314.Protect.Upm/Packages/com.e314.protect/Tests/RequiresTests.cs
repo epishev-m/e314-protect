@@ -43,6 +43,7 @@ internal sealed class RequiresTests
 		Assert.Throws<InvalidOperationException>(() => Requires.Ensure(false, string.Empty));
 		Assert.Throws<ArgumentException>(() => Requires.NotEmpty(emptyList, string.Empty));
 		Assert.Throws<ArgumentException>(() => Requires.NoNullElements(nullElementList, string.Empty));
+		Assert.Throws<InvalidOperationException>(() => Requires.InvalidOperation(string.Empty));
 	}
 }
 
