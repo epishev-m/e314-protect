@@ -13,6 +13,7 @@ It prevents errors caused by invalid data by throwing exceptions with informativ
   - [Requires](#requires)
     - [Method Parameter Validation](#method-parameter-validation)
     - [Object State Validation](#object-state-validation)
+    - [Invalid Operation](#invalid-operation)
     - [Collection Validation](#collection-validation)
     - [Combined Validations](#combined-validations)
     - [Exception Handling](#exception-handling)
@@ -59,6 +60,28 @@ public void PerformAction()
 {
     Requires.Ensure(IsInitialized, "Object must be initialized before use.");
     // ...
+}
+```
+
+### Invalid Operation
+
+Use the `InvalidOperation` method to throw an exception indicating an error in the program logic.
+
+When to use:
+
+- If the program reaches a state that should not be possible.
+- If the program logic is violated and further execution is impossible.
+- To explicitly indicate an error in case of unforeseen situations.
+
+```csharp
+public int CalculateCapacity(int requiredSize)
+{
+    for (int i = 0; i < _capacitySizes.Length; i++)
+    {
+        if (_capacitySizes[i] >= requiredSize) return _capacitySizes[i];
+    }
+
+    Requires.InvalidOperation("Required capacity is too large.");
 }
 ```
 
