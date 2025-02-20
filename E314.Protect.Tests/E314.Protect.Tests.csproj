@@ -13,7 +13,7 @@
     </ItemGroup>
 
     <ItemGroup>
-      <Compile Include="..\..\E314.Protect.Upm\Packages\com.e314.protect\Tests\RequiresTests.cs">
+      <Compile Include="..\E314.Protect.Upm\Packages\com.e314.protect\Tests\RequiresTests.cs">
         <Link>Tests\RequiresTests.cs</Link>
       </Compile>
     </ItemGroup>

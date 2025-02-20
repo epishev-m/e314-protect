@@ -28,12 +28,12 @@ It prevents errors caused by invalid data by throwing exceptions with informativ
     </PropertyGroup>
 
     <ItemGroup>
-        <None Include="..\..\E314.Protect.Upm\Packages\com.e314.protect\README.md" Pack="true" PackagePath="\" />
-        <None Include="..\..\LICENSE" Pack="true" PackagePath="\" />
+        <None Include="..\E314.Protect.Upm\Packages\com.e314.protect\README.md" Pack="true" PackagePath="\" />
+        <None Include="..\LICENSE" Pack="true" PackagePath="\" />
     </ItemGroup>
 
     <ItemGroup>
-      <Compile Include="..\..\E314.Protect.Upm\Packages\com.e314.protect\Runtime\Requires.cs">
+      <Compile Include="..\E314.Protect.Upm\Packages\com.e314.protect\Runtime\Requires.cs">
         <Link>Runtime\Requires.cs</Link>
       </Compile>
     </ItemGroup>
