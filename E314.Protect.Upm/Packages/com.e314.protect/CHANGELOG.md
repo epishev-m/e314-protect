@@ -1,5 +1,14 @@
 # CHANGELOG
 
+## [2.0.0] - 2025-02-22
+
+Migration to E314.Exceptions
+
+### Breaking Changes
+
+- The E314.Require module has been updated to use custom exceptions from the E314.Exceptions module instead of System.Exception. This change impacts how exceptions are thrown and handled.
+- Existing code that relies on catching System.Exception for validation errors will need to be updated to handle the new exception types ('ArgNullException', 'ArgOutOfRangeException', 'InvOpException, etc.).
+
 ## [1.0.0] - 2025-02-14
 
 First stable release of `E314.Protect`.

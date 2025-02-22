@@ -17,7 +17,7 @@
 ## Unity Package Manager. Git URL
 
 ```ps1
-https://github.com/epishev-m/e314-protect.git?path=E314.Protect.Upm/Packages/com.e314.protect/#release/1.0.0
+https://github.com/epishev-m/e314-protect.git?path=E314.Protect.Upm/Packages/com.e314.protect/#release/2.0.0
 ```
 
 1. Открыть Window → Package Manager.
@@ -36,7 +36,7 @@ https://openupm.com/packages/com.e314.protect.html
 4. Нажать Apply.
 5. Открыть Window → Package Manager.
 6. Нажать на + button → Add package by name...
-7. Введите Имя `com.e314.protect` и Версию `1.0.0`.
+7. Введите Имя `com.e314.protect` и Версию `2.0.0`.
 8. Нажмите Add.
 
 ## NuGet
@@ -50,5 +50,5 @@ https://www.nuget.org/packages/E314.Protect
 3. Выполнить команду для установки пакета NuGet:
 
 ```sh
-dotnet add package E314.Protect -v 1.0.0
+dotnet add package E314.Protect -v 2.0.0
 ```
