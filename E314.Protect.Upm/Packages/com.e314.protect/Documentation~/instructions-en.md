@@ -135,7 +135,7 @@ try
 {
     SetPlayerName("");
 }
-catch (ArgumentException ex)
+catch (E314.ArgException ex)
 {
     Debug.LogError($"Error: {ex.Message}");
 }
