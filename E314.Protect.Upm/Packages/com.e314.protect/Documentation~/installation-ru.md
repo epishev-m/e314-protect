@@ -2,10 +2,12 @@
 
 ## Содержание
 
-- [Совместимость](#совместимость)
-- [Unity Package Manager. Git URL](#unity-package-manager-git-url)
-- [Unity Package Manager. OpenUPM](#unity-package-manager-openupm)
-- [NuGet](#nuget)
+- [Установка](#установка)
+  - [Содержание](#содержание)
+  - [Совместимость](#совместимость)
+  - [Unity Package Manager. Git URL](#unity-package-manager-git-url)
+  - [Unity Package Manager. OpenUPM](#unity-package-manager-openupm)
+  - [NuGet](#nuget)
 
 ## Совместимость
 
@@ -29,7 +31,7 @@ https://openupm.com/packages/com.e314.protect.html
 ```
 
 1. Открыть Edit → Project Settings → Package Manager.
-2. Зарегистрировать новый реестр OpenUPM, если это еще не сделано.
+2. Зарегистрировать новый реестр OpenUPM (<https://package.openupm.com>), если это еще не сделано.
 3. Добавьте `com.e314` в  Scopes.
 4. Нажать Apply.
 5. Открыть Window → Package Manager.

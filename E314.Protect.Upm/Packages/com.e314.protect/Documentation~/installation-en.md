@@ -2,10 +2,12 @@
 
 ## Content tree
 
-- [Compatibility](#compatibility)
-- [Unity Package Manager. Git URL](#unity-package-manager-git-url)
-- [Unity Package Manager. OpenUPM](#unity-package-manager-openupm)
-- [NuGet](#nuget)
+- [Installation](#installation)
+  - [Content tree](#content-tree)
+  - [Compatibility](#compatibility)
+  - [Unity Package Manager. Git URL](#unity-package-manager-git-url)
+  - [Unity Package Manager. OpenUPM](#unity-package-manager-openupm)
+  - [NuGet](#nuget)
 
 ## Compatibility
 
@@ -22,14 +24,14 @@ https://github.com/epishev-m/e314-protect.git?path=E314.Protect.Upm/Packages/com
 2. Click on + → Add package from git URL...
 3. Enter the URL and click Add.
 
-### Unity Package Manager. OpenUPM
+## Unity Package Manager. OpenUPM
 
 ```ps1
 https://openupm.com/packages/com.e314.protect.html
 ```
 
 1. Open Edit → Project Settings → Package Manager.
-2. Register a new OpenUPM registry if it hasn't been done yet.
+2. Register a new OpenUPM (<https://package.openupm.com>) registry if it hasn't been done yet.
 3. Add com.e314 to Scopes.
 4. Click Apply.
 5. Open Window → Package Manager.
