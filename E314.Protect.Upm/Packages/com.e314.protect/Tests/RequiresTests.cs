@@ -1,6 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
+using E314.Exceptions;
 using NUnit.Framework;
 
 namespace E314.Protect.Tests
@@ -34,16 +34,16 @@ internal sealed class RequiresTests
 		var nullElementList = new List<object> { null };
 
 		// Act & Assert
-		Assert.Throws<ArgumentNullException>(() => Requires.NotNull(null, string.Empty));
-		Assert.Throws<ArgumentException>(() => Requires.NotEmpty(null, string.Empty));
-		Assert.Throws<ArgumentException>(() => Requires.NotEmpty("", string.Empty));
-		Assert.Throws<ArgumentException>(() => Requires.NotEmpty(" ", string.Empty));
-		Assert.Throws<ArgumentOutOfRangeException>(() => Requires.InRange(-1, 0, 3, string.Empty));
-		Assert.Throws<ArgumentOutOfRangeException>(() => Requires.InRange(4, 0, 3, string.Empty));
-		Assert.Throws<InvalidOperationException>(() => Requires.Ensure(false, string.Empty));
-		Assert.Throws<ArgumentException>(() => Requires.NotEmpty(emptyList, string.Empty));
-		Assert.Throws<ArgumentException>(() => Requires.NoNullElements(nullElementList, string.Empty));
-		Assert.Throws<InvalidOperationException>(() => Requires.InvalidOperation(string.Empty));
+		Assert.Throws<ArgNullException>(() => Requires.NotNull(null, string.Empty));
+		Assert.Throws<ArgException>(() => Requires.NotEmpty(null, string.Empty));
+		Assert.Throws<ArgException>(() => Requires.NotEmpty("", string.Empty));
+		Assert.Throws<ArgException>(() => Requires.NotEmpty(" ", string.Empty));
+		Assert.Throws<ArgOutOfRangeException>(() => Requires.InRange(-1, 0, 3, string.Empty));
+		Assert.Throws<ArgOutOfRangeException>(() => Requires.InRange(4, 0, 3, string.Empty));
+		Assert.Throws<InvOpException>(() => Requires.Ensure(false, string.Empty));
+		Assert.Throws<ArgException>(() => Requires.NotEmpty(emptyList, string.Empty));
+		Assert.Throws<ArgException>(() => Requires.NoNullElements(nullElementList, string.Empty));
+		Assert.Throws<InvOpException>(() => Requires.InvalidOperation(string.Empty));
 	}
 }
 

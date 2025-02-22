@@ -1,7 +1,9 @@
 {
     "name": "EM.Protect",
     "rootNamespace": "EM.Protect",
-    "references": [],
+    "references": [
+        "EM.Exceptions"
+    ],
     "includePlatforms": [],
     "excludePlatforms": [],
     "allowUnsafeCode": false,

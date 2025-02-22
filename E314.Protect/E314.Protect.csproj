@@ -38,4 +38,8 @@ It prevents errors caused by invalid data by throwing exceptions with informativ
       </Compile>
     </ItemGroup>
 
+    <ItemGroup>
+      <PackageReference Include="E314.Exceptions" Version="1.0.0" />
+    </ItemGroup>
+
 </Project>
