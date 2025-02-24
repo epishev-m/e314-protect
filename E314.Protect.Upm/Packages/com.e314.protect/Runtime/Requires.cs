@@ -211,6 +211,30 @@ public static class Requires
 			methodName: methodName,
 			lineNumber: lineNumber);
 	}
+
+	/// <summary>
+	/// Throws a <see cref="ObjDisposedException"/>, indicating an attempt to use the object after it has been released.
+	/// </summary>
+	/// <param name="isDisposed">The flag to check.</param>
+	/// <param name="fileName">The full path of the source file that contains the caller. Automatically populated by the runtime.</param>
+	/// <param name="methodName">The name of the method or property that invoked the exception. Automatically populated by the runtime.</param>
+	/// <param name="lineNumber">The line number in the source file at which the exception was thrown. Automatically populated by the runtime.</param>
+	/// <exception cref="ObjDisposedException">Thrown if the isDisposed is true.</exception>
+	[MethodImpl(MethodImplOptions.AggressiveInlining)]
+	public static void NotDisposed(
+		bool isDisposed,
+		[CallerFilePath] string fileName = "",
+		[CallerMemberName] string methodName = "",
+		[CallerLineNumber] int lineNumber = 0)
+	{
+		if (isDisposed)
+		{
+			throw new ObjDisposedException(
+				fileName: fileName,
+				methodName: methodName,
+				lineNumber: lineNumber);
+		}
+	}
 }
 
 }

@@ -23,6 +23,7 @@ internal sealed class RequiresTests
 		Assert.DoesNotThrow(() => Requires.Ensure(true, string.Empty));
 		Assert.DoesNotThrow(() => Requires.NotEmpty(list, string.Empty));
 		Assert.DoesNotThrow(() => Requires.NoNullElements(list, string.Empty));
+		Assert.DoesNotThrow(() => Requires.NotDisposed(false));
 	}
 
 	[Test]
@@ -44,6 +45,7 @@ internal sealed class RequiresTests
 		Assert.Throws<ArgException>(() => Requires.NotEmpty(emptyList, string.Empty));
 		Assert.Throws<ArgException>(() => Requires.NoNullElements(nullElementList, string.Empty));
 		Assert.Throws<InvOpException>(() => Requires.InvalidOperation(string.Empty));
+		Assert.Throws<ObjDisposedException>(() => Requires.NotDisposed(true));
 	}
 }
 

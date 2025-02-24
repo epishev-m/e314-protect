@@ -14,6 +14,7 @@ It prevents errors caused by invalid data by throwing exceptions with informativ
     - [Method Parameter Validation](#method-parameter-validation)
     - [Object State Validation](#object-state-validation)
     - [Invalid Operation](#invalid-operation)
+    - [Using an Object After It Has Been Disposed](#using-an-object-after-it-has-been-disposed)
     - [Collection Validation](#collection-validation)
     - [Combined Validations](#combined-validations)
     - [Exception Handling](#exception-handling)
@@ -82,6 +83,33 @@ public int CalculateCapacity(int requiredSize)
     }
 
     Requires.InvalidOperation("Required capacity is too large.");
+}
+```
+
+### Using an Object After It Has Been Disposed
+
+Use the `NotDisposed` method to throw an exception indicating an attempt to use the object after it has been released.
+
+When to use:
+
+- If you want to explicitly state that the object has been released and cannot be used.
+
+``` csharp
+public class DisposableResource : IDisposable
+{
+    private bool _isDisposed;
+
+    public void Dispose()
+    {
+        _isDisposed = true;
+        // ...
+    }
+
+    public void PerformAction()
+    {
+        Requires.NotDisposed(_isDisposed)
+        // ...
+    }
 }
 ```
 
