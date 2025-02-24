@@ -1,12 +1,18 @@
 # CHANGELOG
 
+## [2.1.0] - 2025-02-24
+
+### Added
+
+- `Requires.NotDisposed`: Throws a `ObjDisposedException`, indicating an attempt to use the object after it has been released.
+
 ## [2.0.0] - 2025-02-22
 
-Migration to E314.Exceptions
+Migration to `E314.Exceptions`
 
 ### Breaking Changes
 
-- The E314.Require module has been updated to use custom exceptions from the E314.Exceptions module instead of System.Exception. This change impacts how exceptions are thrown and handled.
+- The E314.Require module has been updated to use custom exceptions from the `E314.Exceptions` module instead of System.Exception. This change impacts how exceptions are thrown and handled.
 - Existing code that relies on catching System.Exception for validation errors will need to be updated to handle the new exception types ('ArgNullException', 'ArgOutOfRangeException', 'InvOpException, etc.).
 
 ## [1.0.0] - 2025-02-14
