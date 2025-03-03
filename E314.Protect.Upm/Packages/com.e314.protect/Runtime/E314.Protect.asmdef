@@ -1,8 +1,8 @@
 {
-    "name": "EM.Protect",
-    "rootNamespace": "EM.Protect",
+    "name": "E314.Protect",
+    "rootNamespace": "E314.Protect",
     "references": [
-        "EM.Exceptions"
+        "E314.Exceptions"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

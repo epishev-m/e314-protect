@@ -1,9 +1,9 @@
 {
-    "name": "EM.Protect.Tests",
-    "rootNamespace": "EM.Protect.Tests",
+    "name": "E314.Protect.Tests",
+    "rootNamespace": "E314.Protect.Tests",
     "references": [
-        "EM.Protect",
-        "EM.Exceptions"
+        "E314.Protect",
+        "E314.Exceptions"
     ],
     "includePlatforms": [
         "Editor"
