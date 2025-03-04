@@ -17,7 +17,7 @@
 ## Unity Package Manager. Git URL
 
 ```ps1
-https://github.com/epishev-m/e314-protect.git?path=E314.Protect.Upm/Packages/com.e314.protect/#release/2.1.1
+https://github.com/epishev-m/e314-protect.git?path=UPM/#release/2.1.1
 ```
 
 1. Открыть Window → Package Manager.

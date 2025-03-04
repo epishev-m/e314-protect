@@ -8,9 +8,9 @@
       "url": "https://package.openupm.com"
     },
     "com.e314.protect": {
-      "version": "file:com.e314.protect",
+      "version": "file:../../UPM",
       "depth": 0,
-      "source": "embedded",
+      "source": "local",
       "dependencies": {
         "com.e314.exceptions": "1.1.2"
       }
