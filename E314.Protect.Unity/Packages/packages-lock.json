@@ -1,7 +1,7 @@
 {
   "dependencies": {
     "com.e314.exceptions": {
-      "version": "1.1.2",
+      "version": "2.0.0",
       "depth": 1,
       "source": "registry",
       "dependencies": {},
@@ -12,7 +12,7 @@
       "depth": 0,
       "source": "local",
       "dependencies": {
-        "com.e314.exceptions": "1.1.2"
+        "com.e314.exceptions": "3.0.0"
       }
     },
     "com.unity.ext.nunit": {

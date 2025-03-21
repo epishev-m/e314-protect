@@ -17,7 +17,7 @@ public static class Requires
 	/// </summary>
 	/// <param name="value">The value to check.</param>
 	/// <param name="paramName">The name of the parameter for the error message.</param>
-	/// <param name="fileName">The full path of the source file that contains the caller. Automatically populated by the runtime.</param>
+	/// <param name="obj">The object that called this method.</param>
 	/// <param name="methodName">The name of the method or property that invoked the exception. Automatically populated by the runtime.</param>
 	/// <param name="lineNumber">The line number in the source file at which the exception was thrown. Automatically populated by the runtime.</param>
 	/// <exception cref="ArgNullException">Thrown if the value is <c>null</c>.</exception>
@@ -25,7 +25,7 @@ public static class Requires
 	public static void NotNull(
 		object value,
 		string paramName,
-		[CallerFilePath] string fileName = "",
+		object obj = null,
 		[CallerMemberName] string methodName = "",
 		[CallerLineNumber] int lineNumber = 0)
 	{
@@ -34,9 +34,12 @@ public static class Requires
 			throw new ArgNullException(
 				paramName,
 				"Parameter cannot be null.",
-				fileName: fileName,
-				methodName: methodName,
-				lineNumber: lineNumber );
+				errorData: new
+				{
+					ObjetType = obj?.GetType().Name ?? string.Empty,
+					MethodName = methodName,
+					LineNumber = lineNumber
+				});
 		}
 	}
 
@@ -45,7 +48,7 @@ public static class Requires
 	/// </summary>
 	/// <param name="value">The string to check.</param>
 	/// <param name="paramName">The name of the parameter for the error message.</param>
-	/// <param name="fileName">The full path of the source file that contains the caller. Automatically populated by the runtime.</param>
+	/// <param name="obj">The object that called this method.</param>
 	/// <param name="methodName">The name of the method or property that invoked the exception. Automatically populated by the runtime.</param>
 	/// <param name="lineNumber">The line number in the source file at which the exception was thrown. Automatically populated by the runtime.</param>
 	/// <exception cref="ArgException">Thrown if the string is empty or whitespace.</exception>
@@ -53,7 +56,7 @@ public static class Requires
 	public static void NotEmpty(
 		string value,
 		string paramName,
-		[CallerFilePath] string fileName = "",
+		object obj = null,
 		[CallerMemberName] string methodName = "",
 		[CallerLineNumber] int lineNumber = 0)
 	{
@@ -62,9 +65,12 @@ public static class Requires
 			throw new ArgException(
 				paramName,
 				"Parameter cannot be empty or whitespace.",
-				fileName: fileName,
-				methodName: methodName,
-				lineNumber: lineNumber);
+				errorData: new
+				{
+					ObjetType = obj?.GetType().Name ?? string.Empty,
+					MethodName = methodName,
+					LineNumber = lineNumber
+				});
 		}
 	}
 
@@ -75,7 +81,7 @@ public static class Requires
 	/// <param name="minValue">The minimum allowed value (inclusive).</param>
 	/// <param name="maxValue">The maximum allowed value (inclusive).</param>
 	/// <param name="paramName">The name of the parameter for the error message.</param>
-	/// <param name="fileName">The full path of the source file that contains the caller. Automatically populated by the runtime.</param>
+	/// <param name="obj">The object that called this method.</param>
 	/// <param name="methodName">The name of the method or property that invoked the exception. Automatically populated by the runtime.</param>
 	/// <param name="lineNumber">The line number in the source file at which the exception was thrown. Automatically populated by the runtime.</param>
 	/// <exception cref="ArgOutOfRangeException">Thrown if the value is outside the range.</exception>
@@ -85,7 +91,7 @@ public static class Requires
 		int minValue,
 		int maxValue,
 		string paramName,
-		[CallerFilePath] string fileName = "",
+		object obj = null,
 		[CallerMemberName] string methodName = "",
 		[CallerLineNumber] int lineNumber = 0)
 	{
@@ -94,9 +100,12 @@ public static class Requires
 			throw new ArgOutOfRangeException(
 				paramName,
 				$"Parameter must be in range {minValue} - {maxValue}.",
-				fileName: fileName,
-				methodName: methodName,
-				lineNumber: lineNumber);
+				errorData: new
+				{
+					ObjetType = obj?.GetType().Name ?? string.Empty,
+					MethodName = methodName,
+					LineNumber = lineNumber
+				});
 		}
 	}
 
@@ -105,7 +114,7 @@ public static class Requires
 	/// </summary>
 	/// <param name="condition">The condition to check.</param>
 	/// <param name="message">The error message if the condition fails.</param>
-	/// <param name="fileName">The full path of the source file that contains the caller. Automatically populated by the runtime.</param>
+	/// <param name="obj">The object that called this method.</param>
 	/// <param name="methodName">The name of the method or property that invoked the exception. Automatically populated by the runtime.</param>
 	/// <param name="lineNumber">The line number in the source file at which the exception was thrown. Automatically populated by the runtime.</param>
 	/// <exception cref="InvOpException">Thrown if the condition is false.</exception>
@@ -113,7 +122,7 @@ public static class Requires
 	public static void Ensure(
 		bool condition,
 		string message,
-		[CallerFilePath] string fileName = "",
+		object obj = null,
 		[CallerMemberName] string methodName = "",
 		[CallerLineNumber] int lineNumber = 0)
 	{
@@ -121,9 +130,12 @@ public static class Requires
 		{
 			throw new InvOpException(
 				message,
-				fileName: fileName,
-				methodName: methodName,
-				lineNumber: lineNumber);
+				errorData: new
+				{
+					ObjetType = obj?.GetType().Name ?? string.Empty,
+					MethodName = methodName,
+					LineNumber = lineNumber
+				});
 		}
 	}
 
@@ -133,7 +145,7 @@ public static class Requires
 	/// <typeparam name="T">The type of elements in the collection.</typeparam>
 	/// <param name="collection">The collection to check.</param>
 	/// <param name="paramName">The name of the parameter for the error message.</param>
-	/// <param name="fileName">The full path of the source file that contains the caller. Automatically populated by the runtime.</param>
+	/// <param name="obj">The object that called this method.</param>
 	/// <param name="methodName">The name of the method or property that invoked the exception. Automatically populated by the runtime.</param>
 	/// <param name="lineNumber">The line number in the source file at which the exception was thrown. Automatically populated by the runtime.</param>
 	/// <exception cref="ArgException">Thrown if the collection is <c>null</c> or empty.</exception>
@@ -141,7 +153,7 @@ public static class Requires
 	public static void NotEmpty<T>(
 		IEnumerable<T> collection,
 		string paramName,
-		[CallerFilePath] string fileName = "",
+		object obj = null,
 		[CallerMemberName] string methodName = "",
 		[CallerLineNumber] int lineNumber = 0)
 	{
@@ -150,9 +162,12 @@ public static class Requires
 			throw new ArgException(
 				paramName,
 				"Collection cannot be null or empty.",
-				fileName: fileName,
-				methodName: methodName,
-				lineNumber: lineNumber);
+				errorData: new
+				{
+					ObjetType = obj?.GetType().Name ?? string.Empty,
+					MethodName = methodName,
+					LineNumber = lineNumber
+				});
 		}
 	}
 
@@ -162,16 +177,16 @@ public static class Requires
 	/// <typeparam name="T">The type of elements in the collection (must be a reference type).</typeparam>
 	/// <param name="collection">The collection to check.</param>
 	/// <param name="paramName">The name of the parameter for the error message.</param>
-	/// <param name="fileName">The full path of the source file that contains the caller. Automatically populated by the runtime.</param>
-	/// <param name="memberName">The name of the method or property that invoked the exception. Automatically populated by the runtime.</param>
+	/// <param name="obj">The object that called this method.</param>
+	/// <param name="methodName">The name of the method or property that invoked the exception. Automatically populated by the runtime.</param>
 	/// <param name="lineNumber">The line number in the source file at which the exception was thrown. Automatically populated by the runtime.</param>
 	/// <exception cref="ArgException">Thrown if the collection contains any <c>null</c> elements.</exception>
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	public static void NoNullElements<T>(
 		IEnumerable<T> collection,
 		string paramName,
-		[CallerFilePath] string fileName = "",
-		[CallerMemberName] string memberName = "",
+		object obj = null,
+		[CallerMemberName] string methodName = "",
 		[CallerLineNumber] int lineNumber = 0)
 		where T : class
 	{
@@ -180,9 +195,12 @@ public static class Requires
 			throw new ArgException(
 				paramName,
 				"Collection cannot contain null elements.",
-				fileName: fileName,
-				methodName: memberName,
-				lineNumber: lineNumber);
+				errorData: new
+				{
+					ObjetType = obj?.GetType().Name ?? string.Empty,
+					MethodName = methodName,
+					LineNumber = lineNumber
+				});
 		}
 	}
 
@@ -190,7 +208,7 @@ public static class Requires
 	/// Throws an <see cref="InvOpException"/>, indicating an invalid operation.
 	/// </summary>
 	/// <param name="message">The error message that explains the reason for the exception.</param>
-	/// <param name="fileName">The full path of the source file that contains the caller. Automatically populated by the runtime.</param>
+	/// <param name="obj">The object that called this method.</param>
 	/// <param name="methodName">The name of the method or property that invoked the exception. Automatically populated by the runtime.</param>
 	/// <param name="lineNumber">The line number in the source file at which the exception was thrown. Automatically populated by the runtime.</param>
 	/// <exception cref="InvOpException">Always thrown when this method is called.</exception>
@@ -202,37 +220,43 @@ public static class Requires
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	public static void InvalidOperation(
 		string message,
-		[CallerFilePath] string fileName = "",
+		object obj = null,
 		[CallerMemberName] string methodName = "",
 		[CallerLineNumber] int lineNumber = 0)
 	{
 		throw new InvOpException(message,
-			fileName: fileName,
-			methodName: methodName,
-			lineNumber: lineNumber);
+			errorData: new
+			{
+				ObjetType = obj?.GetType().Name ?? string.Empty,
+				MethodName = methodName,
+				LineNumber = lineNumber
+			});
 	}
 
 	/// <summary>
 	/// Throws a <see cref="ObjDisposedException"/>, indicating an attempt to use the object after it has been released.
 	/// </summary>
 	/// <param name="isDisposed">The flag to check.</param>
-	/// <param name="fileName">The full path of the source file that contains the caller. Automatically populated by the runtime.</param>
+	/// <param name="obj">The object that called this method.</param>
 	/// <param name="methodName">The name of the method or property that invoked the exception. Automatically populated by the runtime.</param>
 	/// <param name="lineNumber">The line number in the source file at which the exception was thrown. Automatically populated by the runtime.</param>
 	/// <exception cref="ObjDisposedException">Thrown if the isDisposed is true.</exception>
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	public static void NotDisposed(
 		bool isDisposed,
-		[CallerFilePath] string fileName = "",
+		object obj = null,
 		[CallerMemberName] string methodName = "",
 		[CallerLineNumber] int lineNumber = 0)
 	{
 		if (isDisposed)
 		{
 			throw new ObjDisposedException(
-				fileName: fileName,
-				methodName: methodName,
-				lineNumber: lineNumber);
+				errorData: new
+				{
+					ObjetType = obj?.GetType().Name ?? string.Empty,
+					MethodName = methodName,
+					LineNumber = lineNumber
+				});
 		}
 	}
 }

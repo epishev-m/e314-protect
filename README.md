@@ -5,10 +5,10 @@ It prevents errors caused by invalid data by throwing exceptions with informativ
 
 ## Installation
 
-- [Installation - RU](E314.Protect.Upm/Packages/com.e314.protect/Documentation~/installation-ru.md)
-- [Installation - EN](E314.Protect.Upm/Packages/com.e314.protect/Documentation~/installation-en.md)
+- [Installation - RU](UPM/Documentation~/installation-ru.md)
+- [Installation - EN](UPM/Documentation~/installation-en.md)
 
 ## Instructions
 
-- [Instructions - RU](E314.Protect.Upm/Packages/com.e314.protect/Documentation~/instructions-ru.md)
-- [Instructions - EN](E314.Protect.Upm/Packages/com.e314.protect/Documentation~/instructions-en.md)
+- [Instructions - RU](UPM/Documentation~/instructions-ru.md)
+- [Instructions - EN](UPM/Documentation~/instructions-en.md)
